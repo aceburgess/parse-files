@@ -40,11 +40,7 @@ class Person
 
   def self.sort_by_last_name people, direction = 'ASC'
     sorted_people = people.sort_by {|person| person.last_name.downcase }
-    if direction.downcase[0] == 'd'
-      return sorted_people
-    else
-      return sorted_people.reverse
-    end
+    direction.downcase[0] == 'd' ? sorted_people : sorted_people.reverse
   end
 
   def to_s
