@@ -3,4 +3,10 @@ require_relative 'parser'
 
 # Use ARGV in the future to parse file
 
-p Parser.create_people_objects 'ruby-code-test-files/comma_delimited.txt'
+files =
+  [ 'ruby-code-test-files/pipe_delimited.txt',
+    'ruby-code-test-files/comma_delimited.txt',
+    'ruby-code-test-files/space_delimited.txt'
+  ]
+
+p Parser.parse_and_combine files

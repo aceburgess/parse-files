@@ -1,6 +1,10 @@
 module Parser
 
   extend self
+  def parse_and_combine files
+    files.map { |file| self.create_people_objects file }.flatten
+  end
+
   def parse file
     opened_file = File.open file
     lines = []
