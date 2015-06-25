@@ -1,16 +1,18 @@
 module Parser
 
-  def self.parse file
+  extend self
+  def parse file
     opened_file = File.open file
     lines = []
+    delimiter = nil
     opened_file.each do |line|
       delimiter = self.find_delimiter line
       lines << line.split(delimiter).map(&:strip)
     end
-    lines
+    lines.unshift delimiter
   end
 
-  def self.find_delimiter line
+  def find_delimiter line
     if line.include? ','
       return ','
     elsif line.include? '|'
