@@ -1,5 +1,6 @@
 class Person
 
+  attr_reader :first_name, :last_name, :gender, :favorite_color, :birthdate
   def initialize args = {}
     @first_name = args[:first_name]
     @last_name = args[:last_name]
@@ -14,5 +15,9 @@ class Person
 
   def convert_gender gender
     gender.downcase[0] == 'f' ? 'Female' : 'Male'
+  end
+
+  def to_s
+    "#{last_name} #{first_name} #{gender} #{birthdate} #{favorite_color}"
   end
 end
