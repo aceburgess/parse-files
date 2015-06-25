@@ -8,4 +8,6 @@ class Person
     @birthdate = args[:birthdate]
   end
 
+  def convert_birthday
+  end
 end
