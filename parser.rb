@@ -22,4 +22,33 @@ module Parser
     end
   end
 
+  def create_people_objects file
+    people = self.parse file
+    case people.first
+    when ',' then return self.create_people_comma people
+    when '|' then return self.create_people_pipe people
+    else
+      reutrn self.create_people_space people
+    end
+  end
+
+  def create_people_comma people
+    people.shift
+    people.map do |person|
+      person = Person.new(
+        last_name: person[0],
+        first_name: person[1],
+        gender: person[2],
+        favorite_color: person[3],
+        birthdate: person[4]
+      )
+    end
+  end
+
+  def create_people_pipe people
+  end
+
+  def create_people_space people
+  end
+
 end
