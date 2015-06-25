@@ -1,4 +1,5 @@
 module View
+
   extend self
   def spacing
     puts '-- ' * 20
