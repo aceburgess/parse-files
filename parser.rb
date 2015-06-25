@@ -6,13 +6,13 @@ module Parser
     output_file = output_file || 'output.txt'
     people = self.parse_and_combine input_files
     File.open(output_file, 'w+') do |f|
-      f.puts "Output 1"
+      f.puts "Output 1:"
       f.puts Person.sort_by_gender people
       f.puts
-      f.puts "Output 2"
+      f.puts "Output 2:"
       f.puts Person.sort_by_birthdate people
       f.puts
-      f.puts "Output 3"
+      f.puts "Output 3:"
       f.puts Person.sort_by_last_name people
     end
   end
