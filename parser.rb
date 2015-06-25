@@ -46,9 +46,29 @@ module Parser
   end
 
   def create_people_pipe people
+    people.shift
+    people.map do |person|
+      person = Person.new(
+        last_name: person[0],
+        first_name: person[1],
+        gender: person[3],
+        favorite_color: person[4],
+        birthdate: person[5]
+      )
+    end
   end
 
   def create_people_space people
+    people.shift
+    people.map do |person|
+      person = Person.new(
+        last_name: person[0],
+        first_name: person[1],
+        gender: person[3],
+        birthdate: person[4],
+        favorite_color: person[5]
+      )
+    end
   end
 
 end
