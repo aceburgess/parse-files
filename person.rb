@@ -17,6 +17,26 @@ class Person
     gender.downcase[0] == 'f' ? 'Female' : 'Male'
   end
 
+  def self.sort_by_gender people
+    people = people.group_by(&:gender)
+    sorted_people = sort_by_last_name(people['Female'], 'DESC')
+    sorted_people << (sort_by_last_name people['Male'], 'DESC')
+    sorted_people.flatten
+  end
+
+  def self.sort_by_birthdate people
+    people.sort_by {|person| Time.new(person.birthdate) }
+  end
+
+  def self.sort_by_last_name people, direction = 'ASC'
+    sorted_people = people.sort_by {|person| person.last_name.downcase }
+    if direction.downcase[0] == 'd'
+      return sorted_people
+    else
+      return sorted_people.reverse
+    end
+  end
+
   def to_s
     "#{last_name} #{first_name} #{gender} #{birthdate} #{favorite_color}"
   end
