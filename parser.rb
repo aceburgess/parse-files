@@ -1,7 +1,6 @@
 module Parser
 
   extend self
-
   def output_people input_files, output_file = nil
     output_file = output_file || 'output.txt'
     people = self.parse_and_combine input_files
