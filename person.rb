@@ -25,7 +25,17 @@ class Person
   end
 
   def self.sort_by_birthdate people
-    people.sort_by {|person| Time.new(person.birthdate) }
+    people = people.group_by do |person|
+      birthdate = person.birthdate.split('/').map(&:to_i)
+      days = birthdate[2] * 365
+      days += birthdate[0] * 31
+      days += birthdate[1]
+      days
+    end
+    people = people.sort_by do |date, group_of_people|
+      date
+    end
+    people.flatten.select {|obj| obj.class != Fixnum }
   end
 
   def self.sort_by_last_name people, direction = 'ASC'
