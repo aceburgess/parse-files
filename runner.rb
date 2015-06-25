@@ -9,4 +9,4 @@ files =
     'ruby-code-test-files/space_delimited.txt'
   ]
 
-p Parser.parse_and_combine files
+p Parser.output_people files, 'test.txt'

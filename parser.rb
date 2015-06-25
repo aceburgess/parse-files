@@ -1,6 +1,15 @@
 module Parser
 
   extend self
+
+  def output_people input_files, output_file = nil
+    output_file = output_file || 'output.txt'
+    people = self.parse_and_combine input_files
+    File.open(output_file, 'w+') do |f|
+      f.puts people
+    end
+  end
+
   def parse_and_combine files
     files.map { |file| self.create_people_objects file }.flatten
   end
