@@ -27,8 +27,7 @@ module Parser
     case people.first
     when ',' then return self.create_people_comma people
     when '|' then return self.create_people_pipe people
-    else
-      reutrn self.create_people_space people
+    else return self.create_people_space people
     end
   end
 
