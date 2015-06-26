@@ -7,6 +7,7 @@ files = View.user_input
 files = files.split(' ').map(&:strip)
 View.name_output_file
 output_filename = View.user_input
+output_filename = 'output.txt' if output_filename.strip.empty?
 
 Parser.output_people files, output_filename
 
