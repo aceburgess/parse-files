@@ -5,6 +5,7 @@ describe Parser do
   let(:comma_delimited_file) {'ruby-code-test-files/comma_delimited.txt'}
   let(:pipe_delimited_file) {'ruby-code-test-files/pipe_delimited.txt'}
   let(:space_delimited_file) {'ruby-code-test-files/space_delimited.txt'}
+  let(:files) {[comma_delimited_file, pipe_delimited_file, space_delimited_file]}
 
   it 'Parser.parse should take a file open it and output and array' do
     expect(Parser.parse(comma_delimited_file)).to be_an(Array)
@@ -24,7 +25,6 @@ describe Parser do
   end
 
   it 'Parser.parse_and_combine should return an Array of Person objects from all inputed files' do
-    files = [comma_delimited_file, pipe_delimited_file, space_delimited_file]
     expect(Parser.parse_and_combine(files)).to be_an(Array)
     expect(Parser.parse_and_combine(files)).to all be_a(Person)
   end
