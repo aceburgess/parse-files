@@ -20,3 +20,6 @@ The default is `output.txt`. So if you just hit enter and leave it blank `output
 
 The program will let you know of a `success` or `failure`.
 
+### Running tests
+
+Run `rspec` in terminal while in the root directory of this project and RSpec will run all tests in the `spec/` file
