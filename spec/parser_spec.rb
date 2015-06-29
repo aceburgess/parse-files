@@ -29,4 +29,9 @@ describe Parser do
     expect(Parser.parse_and_combine(files)).to all be_a(Person)
   end
 
+  it 'Parser.parse_and_combine outputed array should be same length as lines in all inputed files' do
+    total_lines = files.map {|file| File.open(file).count }.reduce(&:+)
+    expect(Parser.parse_and_combine(files).count).to eq(total_lines)
+  end
+
 end
