@@ -7,7 +7,7 @@ describe Parser do
   let(:space_delimited_file) {'ruby-code-test-files/space_delimited.txt'}
 
   it 'Parser.parse should take a file open it and output and array' do
-    expect(Parser.parse(comma_delimited_file).class).to eq(Array)
+    expect(Parser.parse(comma_delimited_file)).to be_an(Array)
     expect(Parser.parse(comma_delimited_file).length).to be > 3
   end
 
