@@ -18,6 +18,15 @@ describe Parser do
   end
 
   it 'Parser.create_people_objects should return an Array of Person objects' do
+    expect(Parser.create_people_objects(comma_delimited_file)).to all be_an_instance_of(Person)
+    expect(Parser.create_people_objects(pipe_delimited_file)).to all be_an_instance_of(Person)
+    expect(Parser.create_people_objects(space_delimited_file)).to all be_an_instance_of(Person)
+  end
+
+  it 'Parser.parse_and_combine should return an Array of Person objects from all inputed files' do
+    files = [comma_delimited_file, pipe_delimited_file, space_delimited_file]
+    expect(Parser.parse_and_combine(files)).to be_an(Array)
+    expect(Parser.parse_and_combine(files)).to all be_a(Person)
   end
 
 end
